@@ -1,0 +1,357 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #a2dcd9;
+}
+
+header {
+    position: relative;
+    margin: 0;
+    padding-top: 20px;
+    background-image: url('img/edit.svg'); /* Replace 'your-image.svg' with the path to your SVG image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-bottom: 5px;
+}
+
+/* Lägg till klassen 'nighttime' för bakgrundsbild på natten */
+header.nighttime {
+    background-image: url('img/editnatt.svg'); /* Bakgrundsbild för nattetid */
+  
+}
+
+h1 {
+    text-align: center;
+    color: #ffffff;
+    font-size: 20px;
+    font-family: "Montserrat Alternates", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    margin-top: 0px;
+}
+
+.current-info p {
+    color:#ffffff;
+    font-family: "Montserrat Alternates", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+
+.weather-detail.temperature,
+#current-weather {
+    text-align: center;
+    margin-top: 50px; /* Increase the margin-top for spacing */
+    
+}
+
+.weather-detail p {
+    font-size: 50px;
+    margin-top: 130px;
+    
+}
+
+.container {
+    display: flex; /* Gör innehållet horisontellt */
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin-top: 150px;
+    background-color: #ffffffce;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Justera bredden efter behov */
+    height: 100px;
+}
+
+.container p {
+    font-size: 12px;
+    margin-top: 10px; /* Justera detta värde efter behov */
+    margin-right: 15px; /* Lägg till marginal mellan p-elementen */
+    margin-left: 15px;
+    font-family: "Montserrat Alternates", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* Sätt flexbox-raden att röra sig horisontellt */
+.weather-detail {
+    display: flex;
+    flex-direction: row;
+    justify-content: center; /* Centrera innehållet horisontellt */
+    align-items: center; /* Centrera innehållet vertikalt */
+   
+}
+
+
+
+
+
+
+.header-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header-content .container {
+    margin-top: 20px; /* Adjust this value as needed */
+}
+
+#hourly-weather {
+    padding: 15px;
+    text-align: center;
+    margin-bottom: 20px;
+    background-color: #ffffffce;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex; /* Display children horizontally */
+    justify-content: space-between; /* Spread children horizontally */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    scrollbar-width: none; /* Hide scrollbar for Chrome, Edge, and Safari */
+    -ms-overflow-style: none; /* Hide scrollbar for Firefox */
+    font-family: "Montserrat Alternates", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+#hourly-weather::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Chrome, Edge, and Safari */
+}
+.hour-block p {
+    white-space: nowrap;
+}
+
+#daily-weather {
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    background-color: #ffffffce;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: "Montserrat Alternates", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+#hourly-weather h4,
+#daily-weather h4 {
+    color: #333;
+    margin-bottom: 5px;
+    font-weight: 300;
+    font-family: "Montserrat Alternates", sans-serif;
+    font-style: normal;
+    
+}
+
+.hour-block {
+  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 18px; /* Lägg till mellanrum mellan varje box, börjar från vänster */
+margin-right: 18px;
+} 
+
+.hour-block h4,
+.hour-block p {
+    margin: 30px 0;
+}
+
+.hour-block h4 {
+    margin-top: 20px; /* Justera detta värde efter behov för önskat mellanrum */
+    
+}
+
+.hour-block p {
+    margin-bottom: 15px;
+}
+
+
+#daily-weather {
+    margin-top: -15px;
+}
+
+#current-weather {
+    position: absolute;
+    bottom: 260px; /* Justera detta värde efter behov för önskat avstånd från botten */
+    left: 50%;
+    transform: translateX(-50%);
+    /* Använd transform och left: 50% för att centrera elementet horisontellt */
+}
+
+.weather-detail img {
+    width: 30px; /* Ange önskad bredd för ikonerna */ /* Ange önskad höjd för ikonerna */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centrera vertikalt */
+ 
+}
+
+
+
+
+
+#wind-speed, #humidity, #uv-index {
+    font-size: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: "Montserrat Alternates", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.weather-detail p {
+    
+    text-align: center; /* Centrera texten horisontellt */
+    margin-left: 30px;
+    margin-right: 40px;
+
+}
+
+.weather-detail span {
+    display: block; /* Byt till blockelement för att göra dem centrerade vertikalt */
+    font-size: 25px;
+    text-align: center; /* Centrera texten horisontellt */
+    /* Justera bottenmarginalen för att öka avståndet mellan värdet och p-elementet */
+}
+
+ #cloud {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120px;
+    height: auto;
+    
+}
+
+#thunder {
+    transform: translate(-50%, -50%) scale(5);
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: auto;
+    animation: fade 10s ease-in-out infinite;
+    
+}
+
+#moon { 
+    margin-left: 70px;
+    transform: translate(-50%, -50%) scale(5);
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: auto;
+    
+}
+
+#cloud {
+    margin-left: -20px;
+    transform: translate(-50%, -50%) scale(6); 
+    opacity: 0.8;
+    animation: fade 10s ease-in-out infinite;
+    
+}
+
+#rain {
+    margin-left: -40px;
+    position: absolute;
+    top: 9%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70px;
+    height: auto;
+    animation: raindrop-fall 3s linear infinite;
+   
+}
+
+#sun {
+    position: absolute; 
+    margin-left: -80px;
+    top: 10%; /* Placera solen vertikalt på 50% av sidans höjd */
+    left: 50%; /* Placera solen horisontellt på 50% av sidans bredd */
+    transform: translate(-50%, -50%); /* Centrera solen exakt mitt på sidan */
+    width: 150px; /* Ange önskad bredd för solen */
+    height: auto; /* Så att solen skalas proportionellt */
+    animation: pulse 4s infinite; /* Använd keyframes-animationen med namnet "pulse" */
+   
+    
+}
+
+#snow {
+    position: absolute; 
+    margin-left: -150px;
+    top: 5%; /* Placera solen vertikalt på 50% av sidans höjd */
+    left: 50%; /* Placera solen horisontellt på 50% av sidans bredd */
+    transform: translate(-50%, -50%); /* Centrera solen exakt mitt på sidan */
+    width: 300px; /* Ange önskad bredd för solen */
+    height: auto;
+    animation: raindrop-fall 3s linear infinite;
+   
+}
+
+
+
+
+
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes raindrop-fall {
+    0% {
+        transform: translateY(-20%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(10vh);
+        opacity: 1;
+    }
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0.8;
+    }
+    50% {
+        opacity: 0.4;
+    }
+    100% {
+        opacity: 0.8;
+    }
+}
+
+@keyframes fadethunder {
+    0% {
+        opacity: 1.0;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1.0;
+    }
+}

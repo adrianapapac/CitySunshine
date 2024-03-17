@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CitySunshine</title>
+    <script src="/script.js"></script>
+    <link rel="manifest" href="/path/to/manifest.json">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <header>
+        <h1>Dubrovnik</h1>
+        <div id="weather-elements">
+            <img id="sun" src="img/sol.svg" alt="Sun">
+            <img id="moon" src="Img/moon.svg" alt="Moon">
+            <img id="cloud" src="img/moln.svg" alt="Cloud">
+            <img id="rain" src="img/regn.svg" alt="Rain">
+            <img id="thunder" src="img/thunder.svg" alt="Thunder">
+            <img id="snow" src="img/snow.svg" alt="snow">
+        </div>
+        
+
+        <div class="current-info">
+            <div class="weather-detail temperature">
+                <!-- Current temperature goes here -->
+            </div>
+            <div id="current-weather" class="current-weather">
+                <!-- Current weather goes here -->
+            </div>
+        </div>
+
+        
+        <div class="container">
+            <div id="weather-info">
+                <div class="weather-detail">
+                    <p>Wind Speed <span id="wind-speed"></span></p>
+                    <p>Humidity <span id="humidity"></span></p>
+                    <p>UV Index <span id="uv-index"></span></p>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    
+    
+    <div id="hourly-weather" class="flex-container"></div>
+
+    
+    <div id="daily-weather"></div>
+    
+
+  
+</body>
+</html>
