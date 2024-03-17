@@ -201,7 +201,7 @@ margin-right: 18px;
 
 
 #wind-speed, #humidity, #uv-index {
-    font-size: 25px;
+    font-size: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -218,12 +218,7 @@ margin-right: 18px;
 
 }
 
-.weather-detail span {
-    display: block; /* Byt till blockelement för att göra dem centrerade vertikalt */
-    font-size: 25px;
-    text-align: center; /* Centrera texten horisontellt */
-    /* Justera bottenmarginalen för att öka avståndet mellan värdet och p-elementet */
-}
+
 
  #cloud {
     position: absolute;
