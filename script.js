@@ -81,6 +81,30 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
+    // Function to update background and weather icons based on time
+    function updateBackgroundAndIcons() {
+        const currentTime = new Date().getHours();
+        const header = document.querySelector('header');
+        const body = document.querySelector('body');
+        const moonIcon = document.getElementById('moon');
+
+        if (currentTime >= 20 || currentTime < 6) {
+            header.classList.add('nighttime');
+            body.style.backgroundColor = "#002d62"; // Byt bakgrundsfär till natt
+            moonIcon.style.display = 'block'; // Visa månen på natten
+        } else {
+            header.classList.remove('nighttime');
+            body.style.backgroundColor = ""; // Återställ bakgrundsfärg
+            moonIcon.style.display = 'none'; // Göm månen på dagen
+        }
+    }
+
+    // Call updateBackgroundAndIcons() initially when the page loads
+    updateBackgroundAndIcons();
+
+    // Call updateBackgroundAndIcons() every minute to keep it updated with current time
+    setInterval(updateBackgroundAndIcons, 60000);
+
     // Fetch weather data and update DOM
     fetch("https://api.open-meteo.com/v1/forecast?latitude=42.6507&longitude=18.0944&current=temperature_2m,wind_speed_10m,relative_humidity_2m,uv_index,weathercode&hourly=temperature_2m,relative_humidity_2m,wind_speed_10m,weathercode&daily=temperature_2m_max,temperature_2m_min,weathercode&days=9") // Fetch data for the next 9 days
         .then(response => response.json()) // Convert the response to JSON format
@@ -152,48 +176,20 @@ document.addEventListener("DOMContentLoaded", function() {
                 `;
             }
 
-            // Get daily weather for the next 9 days
-            const dailyTemperaturesMax = data.daily.temperature_2m_max.slice(0, 9).map(temp => Math.round(temp)); // Round each temperature value
-            const dailyTemperaturesMin = data.daily.temperature_2m_min.slice(0, 9).map(temp => Math.round(temp)); // Round each temperature value
-            const dailyWeatherCodes = data.daily.weathercode.slice(0, 9);
-            const dailyWeatherDescriptions = dailyWeatherCodes.map(code => getWeatherDescription(code)); // Get weather descriptions
-            const dailyDates = data.daily.time.slice(0, 9).map(date => getDayName(new Date(date).toDateString())); // Get day names
-
-            // Check if today is included in the forecast, if so, remove it
-            const today = getDayName(new Date().toDateString());
-            const todayIndex = dailyDates.indexOf(today);
-            if (todayIndex !== -1) {
-                dailyDates.splice(todayIndex, 1);
-                dailyTemperaturesMax.splice(todayIndex, 1);
-                dailyTemperaturesMin.splice(todayIndex, 1);
-                dailyWeatherDescriptions.splice(todayIndex, 1);
-            }
+            // Get daily weather for the next 7 days
+            const dailyTemperatures = data.daily.temperature_2m_max.map(temp => Math.round(temp)); // Round each temperature value
 
             // Display daily weather information
             const dailyWeatherDiv = document.getElementById('daily-weather');
-            for (let i = 0; i < dailyTemperaturesMax.length; i++) {
+            for (let i = 0; i < 7; i++) {
+                const day = getDayName(data.daily.time[i]);
                 dailyWeatherDiv.innerHTML += `
-                    <h4>${dailyDates[i]}</h4>
-                    <p>Max: ${dailyTemperaturesMax[i]} °C</p>
-                    <p>Min: ${dailyTemperaturesMin[i]} °C</p>
-                    <p>${dailyWeatherDescriptions[i]}</p>
-                    <hr>
+                    <div class="day-block">
+                        <h4>${day}</h4>
+                        <p>${dailyTemperatures[i]} °C</p>
+                    </div>
                 `;
             }
-
         })
-        .catch(error => console.error('Error fetching weather data:', error)); 
-
-   
-    const currentTime = new Date().getHours();
-    const header = document.querySelector('header');
-    const body = document.querySelector('body');
-
-    if (currentTime >= 20 || currentTime < 6) {
-        header.classList.add('nighttime');
-        body.style.backgroundColor = "#002d62"; // Byt bakgrundsfär till natt
-    } else {
-        header.classList.remove('nighttime');
-        body.style.backgroundColor = ""; // Återställ bakgrundsfärg
-    }
+        .catch(error => console.error("Error fetching weather data:", error));
 });

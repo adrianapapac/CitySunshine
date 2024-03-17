@@ -252,7 +252,8 @@ margin-right: 18px;
     transform: translate(-50%, -50%);
     width: 600px;
     height: auto;
-    
+    animation: fade 10s ease-in-out infinite;
+   
 }
 
 #cloud {
