@@ -39,7 +39,6 @@ document.addEventListener("DOMContentLoaded", function() {
     // Function to toggle weather icon visibility based on weather code
     function toggleWeatherIcon(weatherCode) {
         const sunIcon = document.getElementById('sun');
-        const moonIcon = document.getElementById('moon');
         const cloudIcon = document.getElementById('cloud');
         const rainIcon = document.getElementById('rain');
         const thunderIcon = document.getElementById('thunder');
@@ -47,7 +46,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // Hide all weather icons initially
         sunIcon.style.display = 'none';
-        moonIcon.style.display = 'none';
         cloudIcon.style.display = 'none';
         rainIcon.style.display = 'none';
         thunderIcon.style.display = 'none';
@@ -61,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 break;
             case "4":
             case "cloudy":
-                moonIcon.style.display = 'block';
+                cloudIcon.style.display = 'block';
                 break;
             case "snow":
                 snowIcon.style.display = 'block';
@@ -194,7 +192,6 @@ document.addEventListener("DOMContentLoaded", function() {
     if (currentTime >= 20 || currentTime < 6) {
         header.classList.add('nighttime');
         body.style.backgroundColor = "#002d62"; // Byt bakgrundsfär till natt
-        document.getElementById('moon').style.display = 'block'; // Visa månen
     } else {
         header.classList.remove('nighttime');
         body.style.backgroundColor = ""; // Återställ bakgrundsfärg
