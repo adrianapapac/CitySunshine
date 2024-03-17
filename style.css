@@ -71,8 +71,8 @@ h1 {
 .container p {
     font-size: 12px;
     margin-top: 10px; /* Justera detta värde efter behov */
-    margin-right: 15px; /* Lägg till marginal mellan p-elementen */
-    margin-left: 15px;
+    margin-right: 30px; /* Lägg till marginal mellan p-elementen */
+    margin-left: 30px;
     font-family: "Montserrat Alternates", sans-serif;
     font-weight: 400;
     font-style: normal;
@@ -208,12 +208,13 @@ margin-right: 18px;
     font-family: "Montserrat Alternates", sans-serif;
     font-weight: 300;
     font-style: normal;
+    
 }
 
 .weather-detail p {
     
     text-align: center; /* Centrera texten horisontellt */
-  
+   
     
 
 }
