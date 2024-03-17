@@ -201,7 +201,7 @@ margin-right: 18px;
 
 
 #wind-speed, #humidity, #uv-index {
-    font-size: 10px;
+    font-size: 20px;
     display: flex;
     justify-content: space-around;
     align-items: center;
