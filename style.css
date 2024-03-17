@@ -203,8 +203,8 @@ margin-right: 18px;
 #wind-speed, #humidity, #uv-index {
     font-size: 25px;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
+    align-items: center;
     font-family: "Montserrat Alternates", sans-serif;
     font-weight: 300;
     font-style: normal;
@@ -351,14 +351,3 @@ margin-right: 18px;
     }
 }
 
-@media only screen and (max-width: 600px) {
-    /* Anpassad stil för mindre skärmar */
-    #wind-speed, #humidity, #uv-index {
-        font-size: 20px; /* Justera storleken på texten för mindre skärmar */
-        flex-direction: column; /* Placera elementen på varsin kolumn */
-    }
-
-    .weather-detail p {
-        margin: 5px 20; /* Justera marginalerna för att undvika överlappning av text */
-    }
-}
