@@ -1,3 +1,4 @@
+// Initiera funktioner när dokumentet är helt laddat
 document.addEventListener("DOMContentLoaded", function() {
     // Function to get day name from date
     function getDayName(dateString) {
@@ -38,6 +39,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Function to toggle weather icon visibility based on weather code
     function toggleWeatherIcon(weatherCode) {
         const sunIcon = document.getElementById('sun');
+        const moonIcon = document.getElementById('moon');
         const cloudIcon = document.getElementById('cloud');
         const rainIcon = document.getElementById('rain');
         const thunderIcon = document.getElementById('thunder');
@@ -45,6 +47,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // Hide all weather icons initially
         sunIcon.style.display = 'none';
+        moonIcon.style.display = 'none';
         cloudIcon.style.display = 'none';
         rainIcon.style.display = 'none';
         thunderIcon.style.display = 'none';
@@ -56,7 +59,9 @@ document.addEventListener("DOMContentLoaded", function() {
             case 1:
                 sunIcon.style.display = 'block';
                 break;
-            case "4":
+            case 2:
+            case 3:
+            case 4:
             case "cloudy":
                 cloudIcon.style.display = 'block';
                 break;
@@ -80,23 +85,27 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    // Function to toggle moon visibility based on time
-    function toggleMoonVisibility() {
-        const currentTime = new Date().getHours();
+    // Function to toggle weather icons based on day/night
+    function toggleDayNightIcons(isNight) {
+        const sunIcon = document.getElementById('sun');
         const moonIcon = document.getElementById('moon');
+        const cloudIcon = document.getElementById('cloud');
+        const rainIcon = document.getElementById('rain');
+        const thunderIcon = document.getElementById('thunder');
+        const snowIcon = document.getElementById('snow');
 
-        if (currentTime >= 20 || currentTime < 6) {
-            moonIcon.style.display = 'block'; // Show moon at night
+        if (isNight) {
+            sunIcon.style.display = 'none';
+            cloudIcon.style.display = 'none';
+            rainIcon.style.display = 'none';
+            thunderIcon.style.display = 'none';
+            snowIcon.style.display = 'none';
+            moonIcon.style.display = 'block'; // Display moon icon at night
         } else {
-            moonIcon.style.display = 'none'; // Hide moon during the day
+            moonIcon.style.display = 'none'; // Hide moon icon during the day
+            // You may need to set the display property for other icons as per your requirement
         }
     }
-
-    // Call toggleMoonVisibility() initially when the page loads
-    toggleMoonVisibility();
-
-    // Call toggleMoonVisibility() every minute to keep it updated with current time
-    setInterval(toggleMoonVisibility, 60000);
 
     // Fetch weather data and update DOM
     fetch("https://api.open-meteo.com/v1/forecast?latitude=42.6507&longitude=18.0944&current=temperature_2m,wind_speed_10m,relative_humidity_2m,uv_index,weathercode&hourly=temperature_2m,relative_humidity_2m,wind_speed_10m,weathercode&daily=temperature_2m_max,temperature_2m_min,weathercode&days=9") // Fetch data for the next 9 days
@@ -160,7 +169,7 @@ document.addEventListener("DOMContentLoaded", function() {
             const hourlyWeatherDiv = document.getElementById('hourly-weather');
             for (let i = 0; i < 10; i++) {
                 const index = startIndex + i;
-                const hour = ('0' + hourlyTimes[index]).slice(-2); // Format the hour to always have two digits
+                const hour = ('0' + hourlyTimes[index]).slice(-2); // Formatera timmen för att alltid ha två siffror
                 hourlyWeatherDiv.innerHTML += `
                     <div class="hour-block">
                         <h4>${hour}:00</h4>
@@ -199,18 +208,20 @@ document.addEventListener("DOMContentLoaded", function() {
             }
 
         })
-        .catch(error => console.error('Error fetching weather data:', error)); 
+        .catch(error => console.error('Error fetching weather data:', error)); // Handle any errors
 
-    // Toggle night mode based on time
+    // Använd JavaScript för att lägga till klassen 'nighttime' när det är natt
     const currentTime = new Date().getHours();
     const header = document.querySelector('header');
     const body = document.querySelector('body');
 
     if (currentTime >= 20 || currentTime < 6) {
         header.classList.add('nighttime');
-        body.style.backgroundColor = "#002d62"; // Change background color to night
+        body.style.backgroundColor = "#002d62"; // Lägg till bakgrundsfärgen när det är natt
+        toggleDayNightIcons(true); // Anropa funktionen för att visa månbilden under natten
     } else {
         header.classList.remove('nighttime');
-        body.style.backgroundColor = ""; // Reset background color
+        body.style.backgroundColor = ""; // Återställ bakgrundsfärgen till standard om det inte är natt
+        toggleDayNightIcons(false); // Anropa funktionen för att visa andra ikoner under dagen
     }
 });

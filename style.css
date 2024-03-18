@@ -222,12 +222,19 @@ margin-right: 18px;
 
 
  #cloud {
+    
     position: absolute;
     top: 25%;
-    left: 50%;
+    left: 45%;
     transform: translate(-50%, -50%);
-    width: 120px;
+  width: 600px;
     height: auto;
+    animation: fade 10s ease-in-out infinite;
+  
+   
+
+   
+  
     
 }
 
@@ -258,13 +265,7 @@ margin-right: 18px;
    
 }
 
-#cloud {
-    margin-left: -20px;
-    transform: translate(-50%, -50%) scale(6); 
-    opacity: 0.8;
-    animation: fade 10s ease-in-out infinite;
-    
-}
+
 
 #rain {
     margin-left: -40px;

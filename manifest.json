@@ -1,22 +1,16 @@
 {
-    "name": "City Sunshine",
+    "name": "Sunshine",
     "short_name": "CitySun",
-    "description": "En beskrivning av min app",
-    "start_url": "/",
+    "start_url": "index.html",
     "display": "standalone",
-    "background_color": "#ffffff",
-    "theme_color": "#000000",
+    "background_color": "#a2dcd9",
     "icons": [
       {
-        "src": "img/appicon.png",
+        "src": "/img/appicon.png",
         "sizes": "192x192",
         "type": "image/png"
-      },
-      {
-        "src": "path/to/icon-512x512.png",
-        "sizes": "512x512",
-        "type": "image/png"
       }
+      
     ]
   }
   
