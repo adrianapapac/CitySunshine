@@ -85,28 +85,6 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    // Function to toggle weather icons based on day/night
-    function toggleDayNightIcons(isNight) {
-        const sunIcon = document.getElementById('sun');
-        const moonIcon = document.getElementById('moon');
-        const cloudIcon = document.getElementById('cloud');
-        const rainIcon = document.getElementById('rain');
-        const thunderIcon = document.getElementById('thunder');
-        const snowIcon = document.getElementById('snow');
-
-        if (isNight) {
-            sunIcon.style.display = 'none';
-            cloudIcon.style.display = 'none';
-            rainIcon.style.display = 'none';
-            thunderIcon.style.display = 'none';
-            snowIcon.style.display = 'none';
-            moonIcon.style.display = 'block'; // Display moon icon at night
-        } else {
-            moonIcon.style.display = 'none'; // Hide moon icon during the day
-            // You may need to set the display property for other icons as per your requirement
-        }
-    }
-
     // Fetch weather data and update DOM
     fetch("https://api.open-meteo.com/v1/forecast?latitude=42.6507&longitude=18.0944&current=temperature_2m,wind_speed_10m,relative_humidity_2m,uv_index,weathercode&hourly=temperature_2m,relative_humidity_2m,wind_speed_10m,weathercode&daily=temperature_2m_max,temperature_2m_min,weathercode&days=9") // Fetch data for the next 9 days
         .then(response => response.json()) // Convert the response to JSON format
@@ -218,10 +196,8 @@ document.addEventListener("DOMContentLoaded", function() {
     if (currentTime >= 20 || currentTime < 6) {
         header.classList.add('nighttime');
         body.style.backgroundColor = "#002d62"; // Lägg till bakgrundsfärgen när det är natt
-        toggleDayNightIcons(true); // Anropa funktionen för att visa månbilden under natten
     } else {
         header.classList.remove('nighttime');
         body.style.backgroundColor = ""; // Återställ bakgrundsfärgen till standard om det inte är natt
-        toggleDayNightIcons(false); // Anropa funktionen för att visa andra ikoner under dagen
     }
 });

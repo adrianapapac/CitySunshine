@@ -1,6 +1,6 @@
 {
-    "name": "Sunshine",
-    "short_name": "CitySun",
+    "name": "City Sunshine",
+    "short_name": "City Sunshine",
     "start_url": "index.html",
     "display": "standalone",
     "background_color": "#a2dcd9",

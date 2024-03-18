@@ -2,6 +2,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #a2dcd9;
+    overflow-x: hidden;
 }
 
 header {
@@ -225,12 +226,13 @@ margin-right: 18px;
     
     position: absolute;
     top: 25%;
-    left: 45%;
+    left: 50%;
+    right: 50%;
     transform: translate(-50%, -50%);
-  width: 600px;
+  width: 700px;
     height: auto;
     animation: fade 10s ease-in-out infinite;
-  
+  margin-left: -20px;
    
 
    
