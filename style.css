@@ -224,15 +224,15 @@ margin-right: 18px;
 
  #cloud {
     
-    position: absolute;
-    top: 25%;
-    left: 50%;
-    right: 50%;
-    transform: translate(-50%, -50%);
-  width: 700px;
-    height: auto;
+    position: absolute; 
+    margin-left: -10px;
+    top: 25%; /* Placera solen vertikalt på 50% av sidans höjd */
+    left: 50%; /* Placera solen horisontellt på 50% av sidans bredd */
+    transform: translate(-50%, -50%); /* Centrera solen exakt mitt på sidan */
+    width: 700px; /* Ange önskad bredd för solen */
+    height: auto; /* Så att solen skalas proportionellt */
     animation: fade 10s ease-in-out infinite;
-  margin-left: -20px;
+   
    
 
    
